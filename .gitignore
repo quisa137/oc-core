@@ -23,7 +23,7 @@ themes_test.php
 
 
 # ignore themes except the README
-/themes/*
+#/themes/*
 !/themes/README
 
 # just sane ignores
