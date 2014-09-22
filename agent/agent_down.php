@@ -22,7 +22,7 @@
 			if($ext === $filter){
 				$fileVersion = str_replace($filePrefix,'', $file);
 				echo $fileVersion;
-				if(floatval($maxVersion) < floatval($fileVersion)){
+				if($maxVersion < $fileVersion){
 					$maxVersion = $fileVersion;
 				}
 			}
