@@ -1,20 +1,19 @@
 [submodule "3rdparty"]
 	path = 3rdparty
 	url = https://github.com/owncloud/3rdparty.git
-[submodule "c_apps/activity"]
-	path = c_apps/activity
-	url = https://github.com/quisa137/oc-activity
-	branch = stable7
-[submodule "c_apps/documents"]
-	path = c_apps/documents
-	url = https://github.com/quisa137/oc-documents.git
-[submodule "c_apps/files_texteditor"]
-	path = c_apps/files_texteditor
-	url = https://github.com/quisa137/oc-files_texteditor.git
-[submodule "c_apps/gallery"]
-	path = c_apps/gallery
-	url = https://github.com/quisa137/oc-gallery.git
 [submodule "activity"]
 	path = c_apps/activity
 	url = https://github.com/quisa137/oc-activity.git
 	branch = stable7
+[submodule "c_apps/documents"]
+	path = c_apps/documents
+	url = https://github.com/quisa137/oc-documents.git
+        branch = stable7
+[submodule "c_apps/files_texteditor"]
+	path = c_apps/files_texteditor
+	url = https://github.com/quisa137/oc-files_texteditor.git
+        branch = stable7
+[submodule "c_apps/gallery"]
+	path = c_apps/gallery
+	url = https://github.com/quisa137/oc-gallery.git
+        branch = stable7
