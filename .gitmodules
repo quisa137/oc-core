@@ -17,3 +17,6 @@
 	path = c_apps/gallery
 	url = https://github.com/quisa137/oc-gallery.git
         branch = stable7
+[submodule "c_apps/bookmarks"]
+	path = c_apps/bookmarks
+	url = https://github.com/quisa137/bookmarks.git
