@@ -26,6 +26,16 @@ function UserManagementFilter(filterInput, userList, groupList) {
  */
 UserManagementFilter.prototype.init = function() {
 	var umf = this;
+	
+	//SGcom : When User Inputed Enter key, Form invoke submit event.
+	//This Action occurs Page reset. So form submit event is locked by below code.
+	this.filterInput.parents('form:first').submit(function(e){
+		return false;
+		}
+	);
+	
+	this.addResetButton(this.filterInput.next());
+	
 	this.filterInput.keyup(function(e) {
 		//we want to react on any printable letter, plus on modifying stuff like
 		//Backspace and Delete. extended https://stackoverflow.com/a/12467610
@@ -41,7 +51,10 @@ UserManagementFilter.prototype.init = function() {
 
 		//besides the keys, the value must have been changed compared to last
 		//time
-		if(valid && umf.oldVal !== umf.getPattern()) {
+		//if(valid && umf.oldVal !== umf.getPattern()) {
+		//	umf.run();
+		//}
+		if((e.keyCode===13 || e.keyCode ===  0 || e.keyCode ===  8) && umf.getPattern().length > 0){
 			umf.run();
 		}
 

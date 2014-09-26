@@ -30,5 +30,6 @@
 	<?php endif; ?>
 	<form autocomplete="off" id="usersearchform">
 		<input type="text" class="input userFilter" placeholder="<?php p($l->t('Search Users and Groups')); ?>" />
+		<input type="button" class="button userList" value="<?php p($l->t('List'))?>" />
 	</form>
 </div>

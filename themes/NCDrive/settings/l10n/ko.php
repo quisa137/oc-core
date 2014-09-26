@@ -149,6 +149,7 @@ $TRANSLATIONS = array(
 "Decrypt all Files" => "모든 파일 복호화",
 "Login Name" => "로그인 이름",
 "Create" => "만들기",
+"List" => "목록",
 "Admin Recovery Password" => "관리자 복구 암호",
 "Enter the recovery password in order to recover the users files during password change" => "암호 변경 시 변경된 사용자 파일을 복구하려면 복구 암호를 입력하십시오",
 "Default Quota" => "기본 할당량",

@@ -543,7 +543,7 @@ $(document).ready(function () {
 	UserList.initDeleteHandling();
 
 	// Implements User Search
-	filter = new UserManagementFilter($('#usersearchform input'), UserList, GroupList);
+	filter = new UserManagementFilter($('#usersearchform input.userFilter'), UserList, GroupList);
 
 	UserList.doSort();
 	UserList.availableGroups = $userList.data('groups');
