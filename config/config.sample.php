@@ -194,8 +194,9 @@ $CONFIG = array(
  * will stay limited and older entries are available for a while longer. The
  * total disk usage is twice the configured size.
  * WARNING: When you use this, the log entries will eventually be lost.
+ * Example: To set this to 100 MiB, use the value: 104857600 (1024*1024*100 bytes).
  */
-'log_rotate_size' => false, // 104857600, // 100 MiB
+'log_rotate_size' => false,
 
 /* Lifetime of the remember login cookie, default is 15 days */
 "remember_login_cookie_lifetime" => 60*60*24*15,
@@ -270,6 +271,31 @@ $CONFIG = array(
 'preview_libreoffice_path' => '/usr/bin/libreoffice',
 /* cl parameters for libreoffice / openoffice */
 'preview_office_cl_parameters' => ' --headless --nologo --nofirststartwizard --invisible --norestore -convert-to pdf -outdir ',
+/**
+ * Only register providers that have been explicitly enabled
+ *
+ * The following providers are enabled by default:
+ *  - OC\Preview\Image
+ *  - OC\Preview\MP3
+ *  - OC\Preview\TXT
+ *  - OC\Preview\MarkDown
+ *
+ * The following providers are disabled by default due to performance or privacy concerns:
+ *  - OC\Preview\MSOfficeDoc
+ *  - OC\Preview\MSOffice2003
+ *  - OC\Preview\MSOffice2007
+ *  - OC\Preview\OpenDocument
+ *  - OC\Preview\StarOffice
+ *  - OC\Preview\SVG
+ *  - OC\Preview\Movies
+ *  - OC\Preview\PDF
+ */
+'enabledPreviewProviders' => array(
+	'OC\Preview\Image',
+	'OC\Preview\MP3',
+	'OC\Preview\TXT',
+	'OC\Preview\MarkDown'
+),
 
 /* whether avatars should be enabled */
 'enable_avatars' => true,
