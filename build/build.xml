@@ -2,7 +2,8 @@
 <project name="ownCloud" default="build" xmlns:jsl="antlib:com.googlecode.jslint4java">
 
  <!-- the target 'build' can be used by developers for command line builds -->
- <target name="build" depends="prepare,lint,jslint,phploc,pdepend,phpmd,phpcs,phpcpd,phpdoc,phpunit"/>
+ <!--target name="build" depends="prepare,lint,jslint,phploc,pdepend,phpmd,phpcs,phpcpd,phpdoc,phpunit"/-->
+ <target name="build" depends="prepare,lint,jslint,phploc,pdepend,phpcs,phpcpd,phpdoc,phpunit"/>
 
  <!-- the target 'build-ci' is used within our Jenkins CI-server http://ci.tmit.eu -->
  <target name="build-ci" depends="prepare,lint,jslint-ci,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpdoc,phpunit,phpcb-ci"/>
