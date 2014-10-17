@@ -67,7 +67,7 @@ if (!$_['htaccessworking']) {
 </div>
 <?php
 }
-
+/*
 // is WebDAV working ?
 if (!$_['isWebDavWorking']) {
 	?>
@@ -82,7 +82,7 @@ if (!$_['isWebDavWorking']) {
 </div>
 <?php
 }
-
+*/
 // Are doc blocks accessible?
 if (!$_['isAnnotationsWorking']) {
 	?>
@@ -164,7 +164,7 @@ if (!$_['isLocaleWorking']) {
 </div>
 <?php
 }
-
+/*
 // is internet connection working ?
 if (!$_['internetconnectionworking']) {
 	?>
@@ -178,6 +178,7 @@ if (!$_['internetconnectionworking']) {
 </div>
 <?php
 }
+*/
 ?>
 
 <?php foreach ($_['forms'] as $form) {

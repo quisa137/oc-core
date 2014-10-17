@@ -26,8 +26,9 @@ OC.Settings = _.extend(OC.Settings, {
 			$elements.select2(_.extend({
 				placeholder: t('core', 'Groups'),
 				allowClear: true,
-				multiple: true,
+				//multiple: true,
 				separator: '|',
+/*
 				query: _.debounce(function(query) {
 					var queryData = {};
 					if (self._cachedGroups && query.term === '') {
@@ -81,6 +82,7 @@ OC.Settings = _.extend(OC.Settings, {
 					});
 					callback(selection);
 				},
+*/
 				formatResult: function (element) {
 					return escapeHTML(element.displayname);
 				},
