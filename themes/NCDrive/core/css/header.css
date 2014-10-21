@@ -135,7 +135,7 @@
 	display: none;
 	overflow-y: auto;
 	overflow-x: hidden;
-	z-index: 150;
+	z-index: 5000;
 }
 #navigation, #navigation * {
 	-moz-box-sizing:border-box;
@@ -190,6 +190,8 @@
 #navigation .app-icon {
 	margin: 0 auto;
 	padding: 0;
+	max-height: 32px;
+	max-width: 32px;	
 }
 
 /* Apps management */
@@ -241,14 +243,17 @@
 	float: left;
 	display: inline-block;
 	margin-right: 5px;
+	cursor: pointer;
 }
 #header .avatardiv img {
 	opacity: 1;
+	cursor: pointer;
 }
 
 #settings {
 	float: right;
 	color: #bbb;
+	cursor: pointer;
 }
 #expand {
 	display: block;

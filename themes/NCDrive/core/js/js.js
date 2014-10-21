@@ -1079,15 +1079,15 @@ function initCore() {
 		}
 	});
 	$('#settings #expand').click(function(event) {
-		$('#settings #expanddiv').slideToggle(OC.menuSpeed);
+		$('nav #expanddiv').slideToggle(OC.menuSpeed);
 		event.stopPropagation();
 	});
-	$('#settings #expanddiv').click(function(event){
+	$('nav #expanddiv').click(function(event){
 		event.stopPropagation();
 	});
 	//hide the user menu when clicking outside it
 	$(document).click(function(){
-		$('#settings #expanddiv').slideUp(OC.menuSpeed);
+		$('nav #expanddiv').slideUp(OC.menuSpeed);
 	});
 
 	// all the tipsy stuff needs to be here (in reverse order) to work

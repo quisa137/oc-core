@@ -157,7 +157,7 @@ class URLGenerator implements IURLGenerator {
 		$webRoot = substr($url, 0, strlen(\OC::$WEBROOT)) === \OC::$WEBROOT
 			? ''
 			: \OC::$WEBROOT;
-
-		return \OC_Request::serverProtocol() . '://' . \OC_Request::serverHost(). $webRoot . $separator . $url;
+		$p = ($_SERVER['SERVER_NAME'] === 'ncdrive.ncsoft.com')?'https':\OC_Request::serverProtocol();
+		return $p . '://' . \OC_Request::serverHost(). $webRoot . $separator . $url;
 	}
 }

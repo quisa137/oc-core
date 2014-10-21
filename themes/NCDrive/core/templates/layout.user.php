@@ -10,16 +10,14 @@
 		<title>
 			<?php
 				p(!empty($_['application'])?$_['application'].' - ':'');
-				NCDtive
+				p($theme->getTitle());
 			?>
-
 		</title>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-		<!-- meta name="apple-itunes-app" content="app-id=543672169" -->
-		<link rel="shortcut icon" href="/owncloud/core/img/favicon.png" />
-		<link rel="apple-touch-icon-precomposed" href="/owncloud/core/img/favicon-touch.png" />
+		<link rel="shortcut icon" href="<?php print_unescaped(image_path('', 'favicon.png')); ?>" />
+		<link rel="apple-touch-icon-precomposed" href="<?php print_unescaped(image_path('', 'favicon-touch.png')); ?>" />
 		<?php foreach($_['cssfiles'] as $cssfile): ?>
 			<link rel="stylesheet" href="<?php print_unescaped($cssfile); ?>" type="text/css" media="screen" />
 		<?php endforeach; ?>
@@ -36,9 +34,8 @@
 			?>
 		<?php endforeach; ?>
 	</head>
-	<?php flush(); ?>
 	<body id="<?php p($_['bodyid']);?>">
-	<noscript><div id="nojavascript"><div><?php print_unescaped($l->t('This application requires JavaScript to be enabled for correct operation.  Please <a href="http://enable-javascript.com/" target="_blank">enable JavaScript</a> and re-load this interface.')); ?></div></div></noscript>
+	<noscript><div id="nojavascript"><div><?php print_unescaped($l->t('This application requires JavaScript for correct operation. Please <a href="http://enable-javascript.com/" target="_blank">enable JavaScript</a> and reload the page.')); ?></div></div></noscript>
 	<div id="notification-container">
 		<div id="notification"></div>
 		<?php if ($_['updateAvailable']): ?>
@@ -51,7 +48,13 @@
 			</a>
 			<a href="#" class="menutoggle">
 				<div class="header-appname">
-					<?php p(!empty($_['application'])?$_['application']: $l->t('Apps')); ?>
+					<?php
+						if(OC_Util::getEditionString() === '') {
+							p(!empty($_['application'])?$_['application']: $l->t('Apps'));
+						} else {
+							p($theme->getName());
+						}
+					?>
 				</div>
 				<div class="icon-caret svg"></div>
 			</a>
@@ -64,27 +67,7 @@
 					<span id="expandDisplayName"><?php  p(trim($_['user_displayname']) != '' ? $_['user_displayname'] : $_['user_uid']) ?></span>
 					<img class="svg" alt="" src="<?php print_unescaped(image_path('', 'actions/caret.svg')); ?>" />
 				</span>
-				<div id="expanddiv">
-				<ul>
-				<?php foreach($_['settingsnavigation'] as $entry):?>
-					<li>
-						<a href="<?php print_unescaped($entry['href']); ?>" title=""
-							<?php if( $entry["active"] ): ?> class="active"<?php endif; ?>>
-							<img class="svg" alt="" src="<?php print_unescaped($entry['icon']); ?>">
-							<?php p($entry['name']) ?>
-						</a>
-					</li>
-				<?php endforeach; ?>
-					<li>
-						<a id="logout" <?php print_unescaped(OC_User::getLogoutAttribute()); ?>>
-							<img class="svg" alt="" src="<?php print_unescaped(image_path('', 'actions/logout.svg')); ?>" />
-							<?php p($l->t('Log out'));?>
-						</a>
-					</li>
-				</ul>
-				</div>
 			</div>
-
 			<form class="searchbox" action="#" method="post">
 				<input id="searchbox" class="svg" type="search" name="query"
 					value="<?php if(isset($_POST['query'])) {p($_POST['query']);};?>"
@@ -114,6 +97,7 @@
 						<a href="<?php print_unescaped(OC_Helper::linkToRoute('settings_apps').'?installed'); ?>" title=""
 							<?php if( $_['appsmanagement_active'] ): ?> class="active"<?php endif; ?>>
 							<img class="app-icon svg" alt="" src="<?php print_unescaped(OC_Helper::imagePath('settings', 'apps.svg')); ?>"/>
+							<div class="icon-loading-dark" style="display:none;"></div>
 							<span>
 								<?php p($l->t('Apps')); ?>
 							</span>
@@ -123,6 +107,25 @@
 
 				</ul>
 			</div>
+		</div>
+		<div id="expanddiv">
+		<ul>
+		<?php foreach($_['settingsnavigation'] as $entry):?>
+			<li>
+				<a href="<?php print_unescaped($entry['href']); ?>" title=""
+					<?php if( $entry["active"] ): ?> class="active"<?php endif; ?>>
+					<img class="svg" alt="" src="<?php print_unescaped($entry['icon']); ?>">
+					<?php p($entry['name']) ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+			<li>
+				<a id="logout" <?php print_unescaped(OC_User::getLogoutAttribute()); ?>>
+					<img class="svg" alt="" src="<?php print_unescaped(image_path('', 'actions/logout.svg')); ?>" />
+					<?php p($l->t('Log out'));?>
+				</a>
+			</li>
+		</ul>
 		</div></nav>
 
 		<div id="content-wrapper">

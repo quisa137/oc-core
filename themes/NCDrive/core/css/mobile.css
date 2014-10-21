@@ -1,9 +1,15 @@
 @media only screen and (max-width: 768px) {
-
+header{height: 45px;}
 #body-login #header {
 	padding-top: 10px;
 }
-
+/*
+#body-user #header,
+#body-settings #header,
+#body-public #header {
+	z-index: 1050;
+}
+*/
 #body-login .wrapper {
 	display: -webkit-box;
 	-webkit-box-orient: horizontal;
@@ -59,7 +65,9 @@
 	margin-right: 10% !important;
 	width: 80% !important;
 }
-
+#expanddiv {
+	z-index: 1000;
+}
 
 /* fix error display on smaller screens */
 .error-wide {
@@ -90,6 +98,7 @@
 	left: 0 !important;
 	background-color: #fff;
 	overflow-x: hidden !important;
+	z-index: 200;
 }
 /* allow horizontal scrollbar in settings
 	otherwise user management is not usable on mobile */
@@ -151,6 +160,13 @@ table.multiselect thead {
 	min-width: 768px !important;
 }
 
+/* do not show dates in filepicker */
+#oc-dialog-filepicker-content .filelist .date {
+	display: none;
+}
+#oc-dialog-filepicker-content .filelist .filename {
+	max-width: 80%;
+}
 
 /* fix controls bar jumping when navigation is slid out */
 .snapjs-left #app-navigation-toggle,
