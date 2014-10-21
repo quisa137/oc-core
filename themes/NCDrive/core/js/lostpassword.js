@@ -19,7 +19,8 @@ OC.Lostpassword = {
 		if ($('#lost-password-encryption').length){
 			$('#lost-password-encryption').click(OC.Lostpassword.sendLink);
 		} else {
-			$('#lost-password').click(OC.Lostpassword.sendLink);
+			//SG-com NCDrive는 사내 시스템과 연동됨으로 블락 처리
+			//$('#lost-password').click(OC.Lostpassword.sendLink);
 		}
 		$('#reset-password #submit').click(OC.Lostpassword.resetPassword);
 	},
