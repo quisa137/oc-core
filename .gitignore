@@ -27,6 +27,7 @@ themes_test.php
 !/themes/README
 
 # just sane ignores
+.gitkeep
 .*.sw[po]
 *.bak
 *.BAK
