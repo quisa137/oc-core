@@ -33,7 +33,7 @@ $previewSupported = OC\Preview::isMimeSupported($_['mimetype']) ? 'true' : 'fals
 				<span id="save" data-protected="<?php p($_['protected'])?>" data-owner="<?php p($_['displayName'])?>" data-name="<?php p($_['filename'])?>">
 					<button id="save-button"><?php p($l->t('Add to your ownCloud')) ?></button>
 					<form class="save-form hidden" action="#">
-						<input type="text" id="remote_address" placeholder="example.com/owncloud"/>
+						<input type="text" id="remote_address" placeholder="<?php p($l->t('example.com/owncloud')) ?>"/>
 						<button id="save-button-confirm" class="icon-confirm svg"></button>
 					</form>
 				</span>

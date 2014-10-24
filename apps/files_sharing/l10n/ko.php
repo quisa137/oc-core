@@ -42,5 +42,7 @@ $TRANSLATIONS = array(
 "You shared %1\$s with group %2\$s" => "%1\$s 를 %2\$s 그룹과 공유했습니다",
 "%2\$s shared %1\$s with you" => "%2\$s님이 %1\$s 를 공유했습니다",
 "You shared %1\$s via link" => "링크를 통해 %1\$s 를 공유했습니다",
+"Add to your ownCloud" => "당신의 계정에 추가",
+"example.com/owncloud" => "example.com"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

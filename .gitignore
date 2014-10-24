@@ -5,7 +5,7 @@
 themes_test.php
 
 # ignore all apps except core ones
-/apps*/*
+!/apps*/*
 !/apps/files
 !/apps/files_encryption
 !/apps/files_external
