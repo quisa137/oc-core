@@ -26,3 +26,6 @@
 [submodule "c_apps/oc-audit_log"]
 	path = c_apps/oc-audit_log
 	url = git@github.com:quisa137/oc-audit_log.git
+[submodule "c_apps/audit_log"]
+	path = c_apps/audit_log
+	url = git@github.com:quisa137/oc-audit_log.git
