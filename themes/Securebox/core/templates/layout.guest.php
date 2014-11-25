@@ -6,24 +6,26 @@
 <!--[if gt IE 9]><html class="ng-csp ie" data-placeholder-focus="false"><![endif]-->
 <!--[if !IE]><!--><html class="ng-csp" data-placeholder-focus="false"><!--<![endif]-->
 
-	<head>
+	<head data-requesttoken="<?php p($_['requesttoken']); ?>">
 		<title>
-		NCDrive
+		<?php p($theme->getTitle()); ?>
 		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+		<!--meta name="apple-itunes-app" content="app-id=543672169"-->
 		<link rel="shortcut icon" href="/owncloud/core/img/favicon.png" />
 		<link rel="apple-touch-icon-precomposed" href="/owncloud/core/img/favicon-touch.png" />
-		<?php foreach ($_['cssfiles'] as $cssfile): ?>
+		<?php foreach($_['cssfiles'] as $cssfile): ?>
 			<link rel="stylesheet" href="<?php print_unescaped($cssfile); ?>" type="text/css" media="screen" />
 		<?php endforeach; ?>
-		<?php foreach ($_['jsfiles'] as $jsfile): ?>
+		<?php foreach($_['jsfiles'] as $jsfile): ?>
 			<script type="text/javascript" src="<?php print_unescaped($jsfile); ?>"></script>
 		<?php endforeach; ?>
-		<?php foreach ($_['headers'] as $header): ?>
+
+		<?php foreach($_['headers'] as $header): ?>
 			<?php
 				print_unescaped('<'.$header['tag'].' ');
-				foreach ($header['attributes'] as $name => $value) {
+				foreach($header['attributes'] as $name=>$value) {
 					print_unescaped("$name='$value' ");
 				};
 				print_unescaped('/>');
@@ -31,7 +33,23 @@
 		<?php endforeach; ?>
 	</head>
 	<?php flush(); ?>
-	<body id="body-public">
-		<?php print_unescaped($_['content']); ?>
+	<body id="body-login">
+		<div class="wrapper"><!-- for sticky footer -->
+			<div class="v-align"><!-- vertically centred box -->
+				<header><div id="header">
+					<div class="logo svg"></div>
+					<div id="logo-claim" style="display:none;"><?php p($theme->getLogoClaim()); ?></div>
+				</div></header>
+
+				<?php print_unescaped($_['content']); ?>
+			<div class="push"></div><!-- for sticky footer -->
+			</div>
+		</div>
+
+		<footer>
+			<p class="info">
+				<?php print_unescaped($theme->getLongFooter()); ?>
+			</p>
+		</footer>
 	</body>
 </html>

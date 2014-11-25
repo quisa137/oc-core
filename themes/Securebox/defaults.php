@@ -22,15 +22,15 @@ class OC_Theme {
 	function __construct() {
 		$version = OC_Util::getVersion();
 
-		$this->defaultEntity = "NCDrive"; /* e.g. company name, used for footers and copyright notices */
-		$this->defaultName = "NCDrive"; /* short name, used when referring to the software */
-		$this->defaultTitle = "NCDrive"; /* can be a longer name, for titles */
-		$this->defaultBaseUrl = "https://ncdrive.ncsoft.com";
-		$this->defaultSyncClientUrl = "https://ncdrive.ncsoft.com/agent/desktop/agent_down.php";
-		$this->defaultDocBaseUrl = "https://ncdrive.ncsoft.com";
+		$this->defaultEntity = "Securebox"; /* e.g. company name, used for footers and copyright notices */
+		$this->defaultName = "Securebox"; /* short name, used when referring to the software */
+		$this->defaultTitle = "Securebox"; /* can be a longer name, for titles */
+		$this->defaultBaseUrl = "http://securebox.jindata.co.kr";
+		$this->defaultSyncClientUrl = "http://securebox.jindata.co.kr/agent/desktop/agent_down.php";
+		$this->defaultDocBaseUrl = "http://securebox.jindata.co.kr/docs";
 		$this->defaultDocVersion = $version[0] . ".0"; // used to generate doc links
-		$this->defaultSlogan = 'NCSOFT DropBox';
-		$this->defaultLogoClaim = "";
+		$this->defaultSlogan = 'Corporation Private Cloud Storage';
+		$this->defaultLogoClaim = "Copyleft 2014 Jindata All right shared";
 		$this->defaultMailHeaderColor = "#1d2d44"; /* header color of mail notifications */
 	}
 	/**
