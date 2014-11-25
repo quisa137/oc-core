@@ -8,7 +8,7 @@
 
 	<head data-requesttoken="<?php p($_['requesttoken']); ?>">
 		<title>
-		NCDrive
+		<?php p($theme->getTitle()); ?>
 		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -48,7 +48,7 @@
 
 		<footer>
 			<p class="info">
-				NCDrive - NCSOFT DropBox
+				<?php print_unescaped($theme->getLongFooter()); ?>
 			</p>
 		</footer>
 	</body>
