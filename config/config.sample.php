@@ -71,7 +71,8 @@ $CONFIG = array(
 
 /**
  * Where user files are stored; this defaults to ``data/`` in the ownCloud
- * directory. The SQLite database is also stored here, when you use SQLite.
+ * directory. The SQLite database is also stored here, when you use SQLite. (SQLite is 
+ * available only in ownCloud Community Edition)
  */
 'datadirectory' => '/var/www/owncloud/data',
 
@@ -521,6 +522,7 @@ $CONFIG = array(
 
 /**
  * When enabled, admins may install apps from the ownCloud app store.
+ * The app store is disabled by default for ownCloud Enterprise Edition
  */
 'appstoreenabled' => true,
 
@@ -806,7 +808,8 @@ $CONFIG = array(
 ),
 
 /**
- * Database types that are supported for installation.
+ * Database types that are supported for installation. (SQLite is available only in 
+ * ownCloud Community Edition, oci and mssql only for the Enterprise Edition)
  *
  * Available:
  * 	- sqlite (SQLite3)
@@ -830,5 +833,11 @@ $CONFIG = array(
 	"default-src 'self'; script-src 'self' 'unsafe-eval'; ".
 	"style-src 'self' 'unsafe-inline'; frame-src *; img-src *; ".
 	"font-src 'self' data:; media-src *",
+
+/**
+ * Secret used by ownCloud for various purposes, e.g. to encrypt data. If you
+ * lose this string there will be data corruption.
+ */
+'secret' => 'ICertainlyShouldHaveChangedTheDefaultSecret',
 
 );
