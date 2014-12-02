@@ -83,8 +83,15 @@ $CONFIG = array(
 'version' => '',
 
 /**
- * Identifies the database used with this installation: ``sqlite``, ``mysql``,
- * ``pgsql``, ``oci``, or ``mssql``.
+ * Identifies the database used with this installation. See also config option
+ * ``supportedDatabases``
+ *
+ * Available:
+ * 	- sqlite (SQLite3 - Community Edition Only)
+ * 	- mysql (MySQL)
+ * 	- pgsql (PostgreSQL)
+ * 	- oci (Oracle - Enterprise Edition Only)
+ * 	- mssql (Microsoft SQL Server - Enterprise Edition Only)
  */
 'dbtype' => 'sqlite',
 
@@ -429,6 +436,15 @@ $CONFIG = array(
  */
 'check_for_working_htaccess' => true,
 
+/**
+ * In certain environments it is desired to have a read-only config file.
+ * When this switch is set to ``true`` ownCloud will not verify whether the
+ * configuration is writable. However, it will not be possible to configure
+ * all options via the web-interface. Furthermore, when updating ownCloud
+ * it is required to make the config file writable again for the update
+ * process.
+ */
+'config_is_read_only' => false,
 
 /**
  * Logging
@@ -808,15 +824,14 @@ $CONFIG = array(
 ),
 
 /**
- * Database types that are supported for installation. (SQLite is available only in 
- * ownCloud Community Edition, oci and mssql only for the Enterprise Edition)
+ * Database types that are supported for installation.
  *
  * Available:
- * 	- sqlite (SQLite3)
+ * 	- sqlite (SQLite3 - Community Edition Only)
  * 	- mysql (MySQL)
  * 	- pgsql (PostgreSQL)
- * 	- oci (Oracle)
- * 	- mssql (Microsoft SQL Server)
+ * 	- oci (Oracle - Enterprise Edition Only)
+ * 	- mssql (Microsoft SQL Server - Enterprise Edition Only)
  */
 'supportedDatabases' => array(
 	'sqlite',
