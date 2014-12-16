@@ -42,7 +42,7 @@
 }
 
 #header .logo {
-	background-image: url(../img/logo.svg);
+	background-image: url(../img/logo.png);
 	background-repeat: no-repeat;
 	width: 252px;
 	height: 120px;
@@ -50,7 +50,7 @@
 }
 
 #header .logo-wide {
-	background-image: url(../img/logo-wide.svg);
+	background-image: url(../img/logo-wide.png);
 	background-repeat: no-repeat;
 	width: 150px;
 	height: 34px;
@@ -59,7 +59,7 @@
 #header .logo-icon {
 	/* display logo so appname can be shown next to it */
 	display: inline-block;
-	background-image: url(../img/logo-icon.svg);
+	background-image: url(../img/logo-icon.png);
 	background-repeat: no-repeat;
 	width: 62px;
 	height: 34px;

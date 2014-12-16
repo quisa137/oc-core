@@ -1,7 +1,13 @@
 @media only screen and (max-width: 768px) {
 header{height: 45px;}
+#body-login header {
+	height:115px;
+}
 #body-login #header {
 	padding-top: 10px;
+}
+#filestable{
+top:0px;
 }
 /*
 #body-user #header,
