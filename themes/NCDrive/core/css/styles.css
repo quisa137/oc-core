@@ -232,6 +232,7 @@ textarea:disabled {
 	}
 
 /* Searchbox */
+form.searchbox {float:right;}
 .searchbox input[type="search"] {
 	position: relative;
 	font-size: 1.2em;
