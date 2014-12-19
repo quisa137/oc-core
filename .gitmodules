@@ -32,3 +32,6 @@
 [submodule "c_apps/files_antivirus"]
 	path = c_apps/files_antivirus
 	url = https://github.com/owncloud/files_antivirus.git
+[submodule "c_apps/ncotp"]
+	path = c_apps/ncotp
+	url = https://github.com/quisa137/oc-ncotp.git
