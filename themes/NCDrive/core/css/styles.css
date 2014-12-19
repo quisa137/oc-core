@@ -243,6 +243,7 @@ form.searchbox {float:right;}
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter:alpha(opacity=70); opacity: .7;
 	margin-top: 6px;
 	float: right;
+	line-height: normal;;
 }
 
 input[type="submit"].enabled {
