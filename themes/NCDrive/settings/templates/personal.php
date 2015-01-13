@@ -4,29 +4,34 @@
  * See the COPYING-README file.
  */?>
 
- <div class="clientsbox center">
-	<h2>에이전트 다운로드</h2>
+<div class="clientsbox center">
+	<h2><?php p($l->t('Get the apps to sync your files'));?></h2>
 	<a href="<?php p($_['clients']['desktop']); ?>" target="_blank">
 		<img src="<?php print_unescaped(OCP\Util::imagePath('core', 'desktopapp.png')); ?>" />
 	</a>
-	<!--a href="<?php p($_['clients']['android']); ?>" target="_blank">
+	<?php /*
+	<a href="<?php p($_['clients']['android']); ?>" target="_blank">
 		<img src="<?php print_unescaped(OCP\Util::imagePath('core', 'googleplay.png')); ?>" />
 	</a>
 	<a href="<?php p($_['clients']['ios']); ?>" target="_blank">
 		<img src="<?php print_unescaped(OCP\Util::imagePath('core', 'appstore.png')); ?>" />
-	</a-->
-	<?php if (OC_Util::getEditionString() === ''): ?>
-	<!--p class="center">
+	</a>
+	*/?>
+
+	<?php /* if (OC_Util::getEditionString() === ''): ?>
+	<p class="center">
 		<?php print_unescaped($l->t('If you want to support the project
-		<a href="https://owncloud.org/contribute" target="_blank">join development</a>
+		<a href="https://owncloud.org/contribute"
+			target="_blank">join development</a>
 		or
-		<a href="https://owncloud.org/promote" target="_blank">spread the word</a>!'));?>
-	</p-->
+		<a href="https://owncloud.org/promote"
+			target="_blank">spread the word</a>!'));?>
+	</p>
 	<?php endif; ?>
 
 	<?php if(OC_APP::isEnabled('firstrunwizard')) {?>
-	<!-- p class="center"><a class="button" href="#" id="showWizard"><?php p($l->t('Show First Run Wizard again'));?></a></p> -->
-	<?php }?>
+	<p class="center"><a class="button" href="#" id="showWizard"><?php p($l->t('Show First Run Wizard again'));?></a></p>
+	<?php } */?>
 </div>
 
 
@@ -134,6 +139,12 @@ if($_['passwordChangeSupported']) {
 			</option>
 		<?php endforeach;?>
 	</select>
+	<?php if (OC_Util::getEditionString() === ''): ?>
+	<a href="https://www.transifex.com/projects/p/owncloud/team/<?php p($_['activelanguage']['code']);?>/"
+		target="_blank">
+		<em><?php p($l->t('Help translate'));?></em>
+	</a>
+	<?php endif; ?>
 </form>
 
 <?php foreach($_['forms'] as $form) {
@@ -197,10 +208,12 @@ if($_['passwordChangeSupported']) {
 
 <div class="section">
 	<h2><?php p($l->t('Version'));?></h2>
-	<strong>NCDrive 1.0</strong>
-
+	<strong><?php p($theme->getName()); ?></strong> <?php p(OC_Util::getHumanVersion()) ?><br />
+<?php if (OC_Util::getEditionString() === ''): ?>
+	<?php print_unescaped($l->t('Developed by the <a href="http://ownCloud.org/contact" target="_blank">ownCloud community</a>, the <a href="https://github.com/owncloud" target="_blank">source code</a> is licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank"><abbr title="Affero General Public License">AGPL</abbr></a>.')); ?>
+<?php endif; ?>
 </div>
 
 <div class="section credits-footer">
-	<p>NCDrive - NCSOFT DropBox</p>
+	<p><?php print_unescaped($theme->getShortFooter()); ?></p>
 </div>

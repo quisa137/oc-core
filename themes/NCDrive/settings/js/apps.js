@@ -7,6 +7,11 @@
 
 OC.Settings = OC.Settings || {};
 OC.Settings.Apps = OC.Settings.Apps || {
+	setupGroupsSelect: function() {
+		OC.Settings.setupGroupsSelect($('#group_select'), {
+			placeholder: t('core', 'All')
+		});
+	},
 	loadApp:function(app) {
 		var page = $('#app-content');
 		page.find('p.license').show();
@@ -99,7 +104,12 @@ OC.Settings.Apps = OC.Settings.Apps || {
 		if (app.internal === false) {
 			page.find('span.score').show();
 			page.find('p.appstore').show();
-			page.find('a#appstorelink').attr('href', 'http://apps.owncloud.com/content/show.php?content=' + app.id);
+			var link = page.find('a#appstorelink');
+			if(app.ocsid) {
+				link.attr('href', 'https://apps.owncloud.com/content/show.php?content=' + app.ocsid);
+			} else {
+				link.hide();
+			}
 			page.find('small.externalapp').hide();
 		} else {
 			page.find('p.appslink').hide();
@@ -112,23 +122,16 @@ OC.Settings.Apps = OC.Settings.Apps || {
 			page.find(".warning").hide();
 		}
 
-		page.find("div.multiselect").parent().remove();
 		if(OC.Settings.Apps.isType(app, 'filesystem') || OC.Settings.Apps.isType(app, 'prelogin') ||
 			OC.Settings.Apps.isType(app, 'authentication') || OC.Settings.Apps.isType(app, 'logging')) {
 			page.find("#groups_enable").hide();
 			page.find("label[for='groups_enable']").hide();
 			page.find("#groups_enable").attr('checked', null);
 		} else {
-			$('#group_select > option').each(function (i, el) {
-				if (app.groups.length === 0 || app.groups.indexOf(el.value) >= 0) {
-					$(el).attr('selected', 'selected');
-				} else {
-					$(el).attr('selected', null);
-				}
-			});
 			if (app.active) {
 				if (app.groups.length) {
-					$('#group_select').multiSelect();
+					OC.Settings.Apps.setupGroupsSelect();
+					$('#group_select').select2('val', app.groups || []);
 					page.find("#groups_enable").attr('checked','checked');
 				} else {
 					page.find("#groups_enable").attr('checked', null);
@@ -237,7 +240,7 @@ OC.Settings.Apps = OC.Settings.Apps || {
 				element.val(t('settings','Uninstall'));
 			} else {
 				OC.Settings.Apps.removeNavigation(appid);
-				appitem.removeClass('active');
+				$('#app-navigation ul li').filterAttr('data-id', appid).remove();
 			}
 		},'json');
 	},
@@ -283,7 +286,7 @@ OC.Settings.Apps = OC.Settings.Apps || {
 					if(container.children('li[data-id="'+entry.id+'"]').length === 0){
 						var li=$('<li></li>');
 						li.attr('data-id', entry.id);
-						var img= $('<img class="icon"/>').attr({ src: entry.icon});
+						var img= $('<img class="app-icon"/>').attr({ src: entry.icon});
 						var a=$('<a></a>').attr('href', entry.href);
 						var filename=$('<span></span>');
 						filename.text(entry.name);
@@ -379,9 +382,10 @@ $(document).ready(function(){
 		}
 	});
 
-	$('#group_select').change(function() {
+	$('#group_select').change(function(ev) {
 		var element = $('#app-content input.enable');
-		var groups = $(this).val();
+		// getting an array of values from select2
+		var groups = ev.val || [];
 		var appid = element.data('appid');
 		if (appid) {
 			OC.Settings.Apps.enableApp(appid, false, element, groups);
@@ -403,14 +407,14 @@ $(document).ready(function(){
 	}
 
 	$("#groups_enable").change(function() {
+		var $select = $('#group_select');
+		$select.val('');
 		if (this.checked) {
-			$("div.multiselect").parent().remove();
-			$('#group_select').multiSelect();
-		} else {
-			$('#group_select').hide().val(null);
-			$("div.multiselect").parent().remove();
+			OC.Settings.Apps.setupGroupsSelect();
 		}
-
-		$('#group_select').change();
+		else {
+			$select.select2('destroy');
+		}
+		$select.change();
 	});
 });

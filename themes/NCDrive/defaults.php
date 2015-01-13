@@ -29,7 +29,7 @@ class OC_Theme {
 		$this->defaultSyncClientUrl = "https://ncdrive.ncsoft.com/agent/desktop/agent_down.php";
 		$this->defaultDocBaseUrl = "https://ncdrive.ncsoft.com";
 		$this->defaultDocVersion = $version[0] . ".0"; // used to generate doc links
-		$this->defaultSlogan = 'NCSOFT DropBox';
+		$this->defaultSlogan = 'NCSOFT Cloud Storage';
 		$this->defaultLogoClaim = "";
 		$this->defaultMailHeaderColor = "#1d2d44"; /* header color of mail notifications */
 	}
