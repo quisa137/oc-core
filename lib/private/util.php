@@ -1395,5 +1395,20 @@ class OC_Util {
 	    # may remove 00h valued characters from end of plain text
 		return mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key,
                                     $ciphertext_dec, MCRYPT_MODE_CBC, $iv_dec);
+	}
+
+	public static function getUserIP() {
+		if (isset($_SERVER)) { 
+			if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) 
+				return $_SERVER["HTTP_X_FORWARDED_FOR"]; 
+			if (isset($_SERVER["HTTP_CLIENT_IP"])) 
+				return $_SERVER["HTTP_CLIENT_IP"]; 
+			return $_SERVER["REMOTE_ADDR"];
+		}
+		if (getenv('HTTP_X_FORWARDED_FOR')) 
+			return getenv('HTTP_X_FORWARDED_FOR'); 
+		if (getenv('HTTP_CLIENT_IP')) 
+			return getenv('HTTP_CLIENT_IP'); 
+		return getenv('REMOTE_ADDR');
 	}	
 }
