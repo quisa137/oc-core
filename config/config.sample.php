@@ -88,7 +88,7 @@ $CONFIG = array(
  *
  * Available:
  * 	- sqlite (SQLite3 - Community Edition Only)
- * 	- mysql (MySQL)
+ * 	- mysql (MySQL/MariaDB)
  * 	- pgsql (PostgreSQL)
  * 	- oci (Oracle - Enterprise Edition Only)
  * 	- mssql (Microsoft SQL Server - Enterprise Edition Only)
@@ -604,6 +604,18 @@ $CONFIG = array(
  * original size. A value of ``1`` or ``null`` disables scaling.
  */
 'preview_max_scale_factor' => 10,
+
+/**
+ * max file size for generating image previews with imagegd (default behaviour)
+ * If the image is bigger, it'll try other preview generators,
+ * but will most likely show the default mimetype icon
+ *
+ * Value represents the maximum filesize in megabytes
+ * Default is 50
+ * Set to -1 for no limit
+ */
+'preview_max_filesize_image' => 50,
+
 /**
  * custom path for LibreOffice/OpenOffice binary
  */
@@ -636,6 +648,15 @@ $CONFIG = array(
  *  - OC\Preview\PDF
  *  - OC\Preview\StarOffice
  *  - OC\Preview\SVG
+ *
+ * The following providers are not available in Microsoft Windows:
+ *
+ *  - OC\Preview\Movie
+ *  - OC\Preview\MSOfficeDoc
+ *  - OC\Preview\MSOffice2003
+ *  - OC\Preview\MSOffice2007
+ *  - OC\Preview\OpenDocument
+ *  - OC\Preview\StarOffice
  */
 'enabledPreviewProviders' => array(
 	'OC\Preview\Image',
