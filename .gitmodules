@@ -29,3 +29,9 @@
 [submodule "c_apps/audit_log"]
 	path = c_apps/audit_log
 	url = git@github.com:quisa137/oc-audit_log.git
+[submodule "c_apps/ncotp"]
+	path = c_apps/ncotp
+	url = git@github.com:quisa137/oc-ncotp.git
+[submodule "c_apps/files_antivirus"]
+	path = c_apps/files_antivirus
+	url = https://github.com/owncloud/files_antivirus.git
