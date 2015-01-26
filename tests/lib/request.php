@@ -48,6 +48,7 @@ class Test_Request extends PHPUnit_Framework_TestCase {
 			array('/core/ajax/translations.php', '/core/ajax/translations.php', 'index.php'),
 			array('/core/ajax/translations.php', '//core/ajax/translations.php', '/index.php'),
 			array('/core/ajax/translations.php', '/oc/core/ajax/translations.php', '/oc/index.php'),
+			array('/core/ajax/translations.php', '/oc//index.php/core/ajax/translations.php', '/oc/index.php'),
 			array('/1', '/oc/core/1', '/oc/core/index.php'),
 		);
 	}
@@ -190,6 +191,23 @@ class Test_Request extends PHPUnit_Framework_TestCase {
 		unset($_SERVER['REMOTE_ADDR']);
 		OC_Config::deleteKey('overwritecondaddr');
 		OC_Config::deleteKey('overwritehost');
+	}
+
+	public function hostWithPortProvider() {
+		return array(
+			array('localhost:500', 'localhost'),
+			array('foo.com', 'foo.com'),
+			array('[1fff:0:a88:85a3::ac1f]:801', '[1fff:0:a88:85a3::ac1f]'),
+			array('[1fff:0:a88:85a3::ac1f]', '[1fff:0:a88:85a3::ac1f]')
+		);
+	}
+
+	/**
+	 * @dataProvider hostWithPortProvider
+	 */
+	public function testGetDomainWithoutPort($hostWithPort, $host) {
+		$this->assertEquals($host, OC_Request::getDomainWithoutPort($hostWithPort));
+
 	}
 
 	/**
