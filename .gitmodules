@@ -35,3 +35,9 @@
 [submodule "c_apps/files_antivirus"]
 	path = c_apps/files_antivirus
 	url = https://github.com/owncloud/files_antivirus.git
+[submodule "c_apps/scotp"]
+	path = c_apps/scotp
+	url = git@github.com:quisa137/oc-scotp.git
+[submodule "c_apps/sbotp"]
+	path = c_apps/sbotp
+	url = git@github.com:quisa137/oc-sbotp.git
