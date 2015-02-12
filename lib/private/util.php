@@ -1417,5 +1417,5 @@ class OC_Util {
 		if (getenv('HTTP_CLIENT_IP')) 
 			return getenv('HTTP_CLIENT_IP'); 
 		return getenv('REMOTE_ADDR');
-	}	
+	}
 }

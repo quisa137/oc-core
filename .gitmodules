@@ -41,3 +41,6 @@
 [submodule "c_apps/sbotp"]
 	path = c_apps/sbotp
 	url = git@github.com:quisa137/oc-sbotp.git
+[submodule "c_apps/sb_data_collector"]
+	path = c_apps/sb_data_collector
+	url = git@github.com:quisa137/oc-sb_datacollector.git
