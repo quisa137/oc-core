@@ -453,10 +453,14 @@ if (!$_['internetconnectionworking']) {
 
 <div class="section">
 	<h2><?php p($l->t('Version'));?></h2>
-	<strong>NCDrive 1.0</strong> 
-
+	<strong><?php p($theme->getTitle()); ?></strong> <?php p(OC_Util::getHumanVersion()) ?>
+<?php if (OC_Util::getEditionString() === ''): ?>
+	<p>
+		<?php print_unescaped($l->t('Developed by the <a href="http://ownCloud.org/contact" target="_blank">ownCloud community</a>, the <a href="https://github.com/owncloud" target="_blank">source code</a> is licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank"><abbr title="Affero General Public License">AGPL</abbr></a>.')); ?>
+	</p>
+<?php endif; ?>
 </div>
 
 <div class="section credits-footer">
-	<p>NCDrive - NCSOFT DropBox</p>
+	<p><?php print_unescaped($theme->getShortFooter()); ?></p>
 </div>

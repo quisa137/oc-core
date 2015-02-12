@@ -140,7 +140,7 @@ $TRANSLATIONS = array(
 "Cloud not found" => "클라우드를 찾을 수 없습니다",
 "Hey there,\n\njust letting you know that %s shared %s with you.\nView it: %s\n\n" => "안녕하세요,\n\n%s 님이 %s을(를) 공유하였음을 알려 드립니다.\n보기 링크: %s\n\n",
 "The share will expire on %s." => "이 공유는 %s 까지 유지됩니다.",
-'Hey there,<br><br>just letting you know that %s shared <strong>%s</strong> with you.<br><a href="%s">View it!</a><br><br>' =>"NCDrive - Share Information Mail<br><br>공유자 - %s<br>공유명 - %s<br><br><a href='%s'>공유 내용 보기</a><br><br>",
+'Hey there,<br><br>just letting you know that %s shared <strong>%s</strong> with you.<br><a href="%s">View it!</a><br><br>' =>"Securebox - Share Information Mail<br><br>공유자 - %s<br>공유명 - %s<br><br><a href='%s'>공유 내용 보기</a><br><br>",
 "Cheers!" => "감사합니다!",
 "Security Warning" => "보안 경고",
 "Your PHP version is vulnerable to the NULL Byte attack (CVE-2006-7243)" => "사용 중인 PHP 버전이 NULL 바이트 공격에 취약합니다 (CVE-2006-7243)",
