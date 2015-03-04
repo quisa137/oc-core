@@ -4,7 +4,7 @@
 		$root = $_SERVER['DOCUMENT_ROOT'];
 		$agentDir = '/agent/desktop/';
 		$absolutePath = $root.$agentDir;
-		$filePrefix = 'NCDrive-Setup-v';
+		$filePrefix = 'Securebox-Setup-v';
 
 		if($OS_TYPE=='WIN'){
 			$filter = 'exe';
