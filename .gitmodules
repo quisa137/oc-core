@@ -1,14 +1,10 @@
 [submodule "3rdparty"]
 	path = 3rdparty
 	url = https://github.com/owncloud/3rdparty.git
-[submodule "activity"]
-	path = c_apps/activity
-	url = https://github.com/quisa137/oc-activity.git
-	branch = stable7
 [submodule "c_apps/documents"]
 	path = c_apps/documents
-	url = https://github.com/quisa137/oc-documents.git
-        branch = stable7
+	url = https://github.com/owncloud/documents.git
+	branch = stable7
 [submodule "c_apps/files_texteditor"]
 	path = c_apps/files_texteditor
 	url = https://github.com/quisa137/oc-files_texteditor.git
@@ -19,7 +15,8 @@
         branch = stable7
 [submodule "c_apps/bookmarks"]
 	path = c_apps/bookmarks
-	url = https://github.com/quisa137/bookmarks.git
+	url = https://github.com/owncloud/bookmarks.git
+	branch = stable7
 [submodule "c_apps/contacts"]
 	path = c_apps/contacts
 	url = git@github.com:quisa137/oc-apps-contacts.git
@@ -35,12 +32,13 @@
 [submodule "c_apps/files_antivirus"]
 	path = c_apps/files_antivirus
 	url = https://github.com/owncloud/files_antivirus.git
-[submodule "c_apps/scotp"]
-	path = c_apps/scotp
-	url = git@github.com:quisa137/oc-scotp.git
 [submodule "c_apps/sbotp"]
 	path = c_apps/sbotp
 	url = git@github.com:quisa137/oc-sbotp.git
 [submodule "c_apps/sb_data_collector"]
 	path = c_apps/sb_data_collector
 	url = git@github.com:quisa137/oc-sb_datacollector.git
+[submodule "c_apps/activity"]
+	path = c_apps/activity
+	url = https://github.com/owncloud/activity.git
+	branch = stable7
