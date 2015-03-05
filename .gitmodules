@@ -7,19 +7,20 @@
 	branch = stable7
 [submodule "c_apps/files_texteditor"]
 	path = c_apps/files_texteditor
-	url = https://github.com/quisa137/oc-files_texteditor.git
-        branch = stable7
+	url = https://github.com/owncloud/files_texteditor.git
+	branch = stable7
 [submodule "c_apps/gallery"]
 	path = c_apps/gallery
-	url = https://github.com/quisa137/oc-gallery.git
-        branch = stable7
+	url = https://github.com/owncloud/gallery.git
+	branch = stable7
 [submodule "c_apps/bookmarks"]
 	path = c_apps/bookmarks
 	url = https://github.com/owncloud/bookmarks.git
 	branch = stable7
 [submodule "c_apps/contacts"]
 	path = c_apps/contacts
-	url = git@github.com:quisa137/oc-apps-contacts.git
+	url = https://github.com/owncloud/contacts.git
+	branch = stable7
 [submodule "c_apps/oc-audit_log"]
 	path = c_apps/oc-audit_log
 	url = git@github.com:quisa137/oc-audit_log.git
