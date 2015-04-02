@@ -1,0 +1,8 @@
+.settingTable{
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+.settingTable th,.settingTable td {
+    border: 1px solid #ddd;
+    padding-left: 10px;
+}

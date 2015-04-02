@@ -1,0 +1,48 @@
+body{margin: 0;margin-top: 14pt}
+#agree h1 {
+    font-size: 14pt;
+    margin-left: 8px;
+    margin-bottom: 24pt;
+    text-align: center;
+    font-weight: bold;
+}
+
+#agree h2 {
+    font-size: 12pt;
+    margin-left: 8px;
+    margin-bottom: 8pt;
+    line-height: 20pt;
+    font-weight: bold;
+}
+
+#agree p {
+    font-size: 10pt;
+    margin-bottom: 10pt;
+    max-width: 90%;
+    margin-left: 5%;
+    text-align: justify;
+}
+.closeOption {
+    padding:3px;
+    position: fixed;
+    bottom: 0px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    font-size: 10pt;
+    text-align: right;
+    vertical-align: middle;
+}
+.closeOption span {
+    line-height: 13px;
+    vertical-align: middle;
+}
+.closeOption input {
+    vertical-align: middle;
+    margin-right: 24px;
+}
+.close{
+    margin-right: 12px;
+    cursor: pointer;
+    vertical-align: middle;
+}

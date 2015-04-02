@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+	<id>nexonotp</id>
+	<name>Nexon OTP Extension</name>
+	<description>adding One Time Password support</description>
+	<version>0.0.1</version>
+	<licence>AGPL</licence>
+	<author>Nexon</author>
+	<require>7.0</require>
+	<shipped>true</shipped>
+	<types>
+		<prelogin />
+		<authentication />
+	</types>
+</info>
+
