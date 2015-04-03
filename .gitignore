@@ -3,6 +3,7 @@
 /apps/inc.php
 /config/config.php
 themes_test.php
+session_*.txt
 
 # ignore all apps except core ones
 !/apps*/*
