@@ -1,25 +1,30 @@
-<div id="sbotp" class="section">
+<div id="nexonotp" class="section">
 <?php 
 $ips = unserialize($_['internal_ip']);
 $content = $_['content'];
 $secureAlarm = $_['secureAlarm'];
 $settings = $_['settings'];
+$host = $_['host'];
+$port = $_['port'];
 if(!is_array($ips) || empty($ips)):
 	$ips = array();
 endif;
 ?>
-<h2><?php p($l->t('SecureBox OTP Extension')) ?></h2>
+<h2><?php p($l->t('Nexon OTP Extension')) ?></h2>
 <input type="checkbox" name="secureAlarm" value="1" <?php p($secureAlarm==='true'?'checked':''); ?> >보안 수칙 게시
 <br>
 <textarea name="content" style="width:60%;height:200px;" <?php p($secureAlarm==='true'?'':'disabled'); ?> ><?php p($content)?></textarea>
 <br><br>
+<p><label><?php p($l->t('Host')) ?> : </label><input type="text" name="host" value="<?php p($host)?>" style="width:400px"></p>
+<p><label><?php p($l->t('Port')) ?> : </label><input type="text" name="port" value="<?php p($port)?>"></p>
 <p><?php p($l->t('Internal IP List(eg:1.234.123.12/24)')) ?></p>
-<input type="button" name="sbotp_add_row" value="<?php p($l->t('IP Add')) ?>"/>
-<ul id="sbotp_ip_list">
+<p><?php p($l->t('if empty list, OTP required to all users.')) ?></p>
+<input type="button" name="nexonotp_add_row" value="<?php p($l->t('IP Add')) ?>"/>
+<ul id="nexonotp_ip_list">
 <?php
 if(count($ips)>0):
 	foreach ($ips as $ip): ?>
-		<li><input type="text" name="internal_ip[]" value="<?php p($ip)?>"/><input type="button" name="sbotp_delete_row"  value="-"/></li>
+		<li><input type="text" name="internal_ip[]" value="<?php p($ip)?>"/><input type="button" name="nexonotp_delete_row"  value="-"/></li>
 	<?php endforeach;
 else:
 ?>
@@ -27,7 +32,7 @@ else:
 endif; 
 ?>
 </ul>
-<br /><button type="button" id="sbotp_save"><?php p($l->t('Save')) ?></button>
+<br /><button type="button" id="nexonotp_save"><?php p($l->t('Save')) ?></button>
 <?php /*
 <table>
     <tr>
@@ -91,7 +96,7 @@ endif;
         <td><input type="checkbox" name="agentBlock"></td>
         <td><input type="checkbox" name="mobileAppBlock"></td>
         <td><input type="checkbox" name="requireOTPLogin"></td>
-        <td><input type="button" name="sbotp_delete_row"  value="-"/></td>
+        <td><input type="button" name="nexonotp_delete_row"  value="-"/></td>
     </tr>
 </tbody>
 </table>

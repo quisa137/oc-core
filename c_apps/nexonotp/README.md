@@ -1,4 +1,4 @@
-oc-sbotp
+oc-nexonotp
 ========
 
 씨큐어 박스 보안 기능 확장

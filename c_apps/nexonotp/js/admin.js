@@ -1,6 +1,6 @@
 $(document).ready(function(jQuery){
-    var list = $("#sbotp_ip_list"),
-        section = $("#sbotp"),
+    var list = $("#nexonotp_ip_list"),
+        section = $("#nexonotp"),
         formVal = true,
         settings = function(){},
         ipValidation = function(str){
@@ -17,17 +17,19 @@ $(document).ready(function(jQuery){
             }
         };
     settings.add = function(e) {
-        list.append('<li><input type="text" name="internal_ip[]" value=""/><input type="button" name="sbotp_delete_row"  value="-"/></li>');
+        list.append('<li><input type="text" name="internal_ip[]" value=""/><input type="button" name="nexonotp_delete_row"  value="-"/></li>');
     };
     settings.remove = function(e) {
-        if(confirm(t('sbotp', 'Do you really delete this row?'))) {
+        if(confirm(t('nexonotp', 'Do you really delete this row?'))) {
             $(this).parent().remove();
         }
     };
     settings.save = function(e) {
         var iplist = $('[name^=internal_ip]');
-        var content = $('#sbotp [name=content]').val();
-        var secureAlarm = $('#sbotp [name=secureAlarm]').prop('checked');
+        var content = $('#nexonotp [name=content]').val();
+        var host = $('#nexonotp [name=host]').val();
+        var port = $('#nexonotp [name=port]').val();
+        var secureAlarm = $('#nexonotp [name=secureAlarm]').prop('checked');
 
         var inputArr = [];
         for(var i=0;i<iplist.length;i++) {
@@ -38,10 +40,12 @@ $(document).ready(function(jQuery){
         }
         if(formVal) {
             $.post(
-                OC.filePath('sbotp', 'ajax', 'admin.php'), 
+                OC.filePath('nexonotp', 'ajax', 'admin.php'), 
                 {
                     'ips':JSON.stringify(inputArr),
                     'content':content,
+                    'host':host,
+                    'port':port,
                     'secureAlarm':(secureAlarm?'1':'0')
                 },
                 settings.afterSave
@@ -53,7 +57,7 @@ $(document).ready(function(jQuery){
             var ips = e.data.ips;
             list.children().remove();
             for(var i=0;i<ips.length;i++) {
-                list.append('<li><input type="text" name="internal_ip[]" value="'+ips[i]+'"/><input type="button" name="sbotp_delete_row"  value="-"/></li>');
+                list.append('<li><input type="text" name="internal_ip[]" value="'+ips[i]+'"/><input type="button" name="nexonotp_delete_row"  value="-"/></li>');
             }
         }
     };
@@ -76,15 +80,15 @@ $(document).ready(function(jQuery){
         return res;
     }
 
-    section.on('click',"[name=sbotp_add_row]",settings.add);
-    section.on('click',"#sbotp_save",settings.save);
-    list.on('click',"[name=sbotp_delete_row]",settings.remove);
+    section.on('click',"[name=nexonotp_add_row]",settings.add);
+    section.on('click',"#nexonotp_save",settings.save);
+    list.on('click',"[name=nexonotp_delete_row]",settings.remove);
     list.on('change',"[name^=internal_ip]",settings.ipChanged);
     section.on('click','[name=secureAlarm]',function(e){
         if($(this).prop('checked')){
-            $('#sbotp [name=content]').prop('disabled',false);
+            $('#nexonotp [name=content]').prop('disabled',false);
         }else{
-            $('#sbotp [name=content]').prop('disabled',true);
+            $('#nexonotp [name=content]').prop('disabled',true);
         }
     });
 });

@@ -4,8 +4,14 @@ namespace OCA\NEXONOTP;
 
 use \OCP\Config;
 class Nexonotp {
-	const APP_NAME = 'sbotp';
-
+	const APP_NAME = 'nexonotp';
+	private $session_file;
+    public function __construct() {
+         $this->session_file = __DIR__.'/session_'.\OCP\Config::getSystemValue('instanceid').'.txt';
+    }
+    public function getSessionFile() {
+        return $this->session_file;
+    }
 	public static function getL10n(){
 		return \OCP\Util::getL10N(self::APP_NAME);
 	}
@@ -13,7 +19,6 @@ class Nexonotp {
 	public static function getinternalIPs(){
 		return self::getAppValue('ips',serialize(array()));
 	}
-
 	public static function setinternalIPs($value){
 		return self::setAppValue('ips', $value);
 	}
@@ -179,8 +184,8 @@ class Nexonotp {
 		return getenv('REMOTE_ADDR');
 	}
     public function send($data,$uri) {
-		$host = OCP\Config::getAppValue($appId, 'ServerHost', '127.0.0.1');
-		$port = OCP\Config::getAppValue($appId, 'ServerPort', '8080');
+		$host = self::getAppValue('host', '127.0.0.1');
+		$port = self::getAppValue('port', '8080');
 		$host = (substr($host, -1) === '/')?substr($host,0,strlen($host)-1):$host;
 		$url = $host.':'.$port.'/';
 
@@ -210,7 +215,7 @@ class Nexonotp {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        
+        // \OCP\Util::writeLog(SELF::APP_NAME, print_r($data,true), \OCP\Util::DEBUG);
         if(curl_exec($ch) && ($errno = curl_errno($ch)) === 0) {
             $res = curl_multi_getcontent($ch);
 
@@ -219,7 +224,7 @@ class Nexonotp {
             $body = substr($res, $header_size);
         } else {
             $error = curl_error($ch);
-            \OCP\Util::writeLog(self::appId, $error, \OCP\Util::ERROR);
+            \OCP\Util::writeLog(SELF::APP_NAME, $error, \OCP\Util::ERROR);
         }
         $code = intval(curl_getinfo($ch,CURLINFO_HTTP_CODE));
         curl_close($ch);

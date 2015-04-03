@@ -1,4 +1,4 @@
-<div id="sbotp" class="section">
+<div id="nexonotp" class="section">
 <?php
 $arrayList = $_['list_array'];
 if(!is_array($arrayList) || empty($arrayList)):

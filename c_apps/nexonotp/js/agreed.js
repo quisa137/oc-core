@@ -8,7 +8,7 @@ $(function(){
         speed:100, 
         width:"70%", 
         height:"75%", 
-        href: OC.filePath('sbotp', '', 'agree.php'),
+        href: OC.filePath('nexonotp', '', 'agree.php'),
         overlayClose : false,
         closeButton : false,
         escKey : false,
@@ -16,7 +16,7 @@ $(function(){
         onComplete : function(){
             $('#agree>.buttons>.agree').click(function(e){
                 if(confirm('사용자 보안 수칙에 동의하십니까?')){
-                    $.post(OC.filePath('sbotp', 'ajax', 'agree.php'),function(e){
+                    $.post(OC.filePath('nexonotp', 'ajax', 'agree.php'),function(e){
                         if(e.status=='success'){
                             $.colorbox.close();
                         }

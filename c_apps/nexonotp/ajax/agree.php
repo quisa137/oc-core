@@ -2,7 +2,7 @@
 namespace OCA\NEXONOTP;
 
 \OCP\JSON::checkLoggedIn();
-\OCP\JSON::checkAppEnabled('sbotp');
+\OCP\JSON::checkAppEnabled('nexonotp');
 \OCP\JSON::callCheck();
 
 Nexonotp::setUserReaded();

@@ -66,6 +66,6 @@ $(function(){
     });
   //하루에 한번 보안 수칙 팝업 보이게 함
     if(getCookie('securityWarning_'+OC.currentUser)!=='done') {
-        openPop(OC.filePath('sbotp', '', 'security_popup.php'),'보안 수칙 안내',655,485);
+        openPop(OC.filePath('nexonotp', '', 'security_popup.php'),'보안 수칙 안내',655,485);
     }
 });
