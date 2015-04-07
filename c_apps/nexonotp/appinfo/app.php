@@ -9,6 +9,25 @@ use OCA\NEXONOTP\Nexonotp;
 if(\OC::$CLI===false) {
 	$loginId = OC_User::getUser();
 	$isLogin = !empty($loginId);
+	//SSO Check
+	if(!$isLogin) {
+		require_once 'nexonotp/3rdparty/sso/Nexon_SSO.php';
+		$sso = new Nexon_SSO();	
+		
+		if(empty($_POST['wresult'])) { // SSO 인증전
+			header('Location: '.$sso->getSignInUrl(\OC_Util::getDefaultPageUrl()));
+			exit;
+		} else {
+			$user = $sso->verify();
+			if(!empty($user['EmpNo']) && !empty($user['EmpID'])){
+				$userid = $user['EmpID'];
+				$token = \OC_Util::generateRandomBytes(32);
+				\OC_Preferences::setValue($userid, 'login_token', $token, time());
+				\OC_User::setMagicInCookie($userid, $token);
+			    \OC_Util::redirectToDefaultPage();
+			}
+		}
+	}
 	if (!$isLogin && !Nexonotp::isVaildIP(Nexonotp::getUserIP())) {
 		if(strpos($_SERVER['SCRIPT_NAME'], '/public.php')===false) {
 			OCP\Util::addScript($appId, 'login');
