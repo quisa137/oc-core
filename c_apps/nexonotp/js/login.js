@@ -11,7 +11,10 @@ $(function(){
 	    '<input id="otpNumber" type="password" placeholder="OTP Numbers" value="" name="otpNumber" required maxlength="8"' , ' original-title="" autocomplete="off">',
 		'<label class="infield" for="otpPassword" style="opacity: 1;">One Time Password</label>',
 		'<img id="password-icon" class="svg" alt="" src="'+url+'/core/img/actions/password.svg">',
-		'</p>'].join("")
+		'</p>',
+	    '<div style="text-align: left;font-size:14px;color:white;padding-left: 60px;">',
+	    	'<input type="radio" name="logintype" value="0"> LOCAL <input type="radio" name="logintype" value="1" checked> OTP',
+	    '</div>'].join("")
 	);
 	
 	var sheet = document.styleSheets[0];
@@ -22,4 +25,14 @@ $(function(){
 			'-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"; filter:alpha(opacity=30); opacity:.3;',
 		'}'].join("")
 	, sheet.cssRules.length);
+
+	$('[name=logintype]').click(function(e){
+		if($(this).val()==='0'){
+			$('.infield.groupbottom').hide();
+			$('#otpNumber').prop('required',false).val('');
+		}else{
+			$('.infield.groupbottom').show();
+			$('#otpNumber').prop('required',true).val('');
+		}
+	});
 });

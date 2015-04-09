@@ -184,8 +184,8 @@ class Nexonotp {
 		return getenv('REMOTE_ADDR');
 	}
     public function send($data,$uri) {
-		$host = self::getAppValue('host', '127.0.0.1');
-		$port = self::getAppValue('port', '8080');
+		$host = self::getAppValue('host', self::getAppValue('host','127.0.0.1'));
+		$port = self::getAppValue('port', self::getAppValue('port','8080'));
 		$host = (substr($host, -1) === '/')?substr($host,0,strlen($host)-1):$host;
 		$url = $host.':'.$port.'/';
 
@@ -229,12 +229,15 @@ class Nexonotp {
         $code = intval(curl_getinfo($ch,CURLINFO_HTTP_CODE));
         curl_close($ch);
 
-        return [
+
+        $resultArray = [
             'header'=>$header,
             'response'=>$body,
             'httpcode'=>$code,
             'errno'=>$errno,
             'error'=>$error
         ];
+        \OCP\Util::writeLog(SELF::APP_NAME, print_r($resultArray,true), \OCP\Util::DEBUG);
+        return $resultArray;
     }
 }
